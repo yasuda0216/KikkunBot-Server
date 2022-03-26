@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<aiml version="1.0">
+<set name="use_name">RAMEN</set>
+
+    <category>
+        <pattern>きっくんとおしゃべりする</pattern>
+        <template>
+            話しかけてくれてありがとう！,何について話したいか次から教えて！ ,「学校」「就職」「友人関係」「アルバイト」「家族」「その他」
+            <think>
+                <set name="topic">chat_category</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            ごめんよ,「きっくんとおしゃべりする」「きっくんに相談する」「相談窓口につなぐ」から選んでね
+        </template>
+    </category>
+
+<topic name="chat_category">
+    <category>
+        <pattern>*</pattern>
+        <template>
+            ごめんよ,「学校」「就職」「友人関係」「アルバイト」「家族」「その他」の中から選んでほしいな
+        </template>
+    </category>
+
+    <category>
+        <pattern>学校</pattern>
+        <template>
+            おけ！,今日は<set name="wadai">学校</set>に関して話しようね！,次にどのくらい話すかの時間を決めよ！,次から選んでね 「5分」「10分」「15分」「20分」
+            <think><set name="topic">chat_timeset</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>就職</pattern>
+        <template>
+            おけ！,今日は<set name="wadai">就職</set>に関して話しようね！,次にどのくらい話すかの時間を決めよ！,次から選んでね 「5分」「10分」「15分」「20分」
+            <think><set name="topic">chat_timeset</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>友人関係</pattern>
+        <template>
+            おけ！,今日は<set name="wadai">友人関係</set>に関して話しようね！,次にどのくらい話すかの時間を決めよ！,次から選んでね 「5分」「10分」「15分」「20分」
+            <think><set name="topic">chat_timeset</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>アルバイト</pattern>
+        <template>
+            おけ！,今日は<set name="wadai">アルバイト</set>に関して話しようね！,次にどのくらい話すかの時間を決めよ！,次から選んでね 「5分」「10分」「15分」「20分」
+            <think><set name="topic">chat_timeset</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>家族</pattern>
+        <template>
+            おけ！,今日は<set name="wadai">家族</set>に関して話しようね！,次にどのくらい話すかの時間を決めよ！,次から選んでね 「5分」「10分」「15分」「20分」
+            <think><set name="topic">chat_timeset</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>その他</pattern>
+        <template>
+             おけ！,それじゃあ、何について話したいかもう少し詳しく教えてほしいな！（入力してみて）
+            <think><set name="topic">chat_category_other</set></think>
+        </template>
+    </category>
+
+</topic>
+
+
+<topic name="chat_category_other">
+    <category>
+        <pattern>*</pattern>
+        <template>
+            なるほど！,<set name="wadai"><star/></set>についてかー！,話を聞くのがすごく楽しみだな！,次にどのくらい話すかの時間を決めよ！,次から選んでね 「5分」「10分」「15分」「20分」
+            <think><set name="topic">chat_timeset</set></think>
+        </template>
+    </category>
+
+</topic>
+
+<topic name="chat_timeset">
+    <category>
+        <pattern>5分</pattern>
+        <template>
+            <set name="time_set">5分</set>だね！,時間になるまでいっぱいお話しようね！,じゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>10分</pattern>
+        <template>
+            <set name="time_set">10分</set>だね！,時間になるまでいっぱいお話しようね！,じゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>15分</pattern>
+        <template>
+            <set name="time_set">15分</set>だね！,時間になるまでいっぱいお話しようね！,じゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>20分</pattern>
+        <template>
+            <set name="time_set">20分</set>だね！,時間になるまでいっぱいお話しようね！,じゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            ごめんよ,「5分」「10分」「15分」「20分」の中から選んでほしいな
+        </template>
+    </category>
+</topic>
+
+
+<topic name="final_check">
+    <category>
+        <pattern>はい</pattern>
+        <template>
+            これで設定は完了だね！,やっと話ができるからワクワクするよ！
+        </template>
+    </category>
+
+    <category>
+        <pattern>話題を設定しなおす</pattern>
+        <template>
+            話題を設定しなおすんだね！,もう一度「学校」「就職」「友人関係」「アルバイト」「家族」「その他」の中から選んでね！
+            <think><set name="topic">reset_wadai</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>時間を設定しなおす</pattern>
+        <template>
+            時間を設定しなおすんだね！,もう一度「5分」「10分」「15分」「20分」の中から選んでね！
+            <think><set name="topic">reset_chat_timeset</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            ごめんよ,「はい」「話題を設定しなおす」「時間を設定しなおす」の中から選んでほしいな
+        </template>
+    </category>
+</topic>
+
+<topic name="reset_wadai">
+    <category>
+        <pattern>学校</pattern>
+        <template>
+            <set name="wadai">学校</set>について話したかったんだね！,それじゃあ確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>就職</pattern>
+        <template>
+            <set name="wadai">就職</set>について話したかったんだね！,それじゃあ確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>友人関係</pattern>
+        <template>
+            <set name="wadai">友人関係</set>について話したかったんだね！,それじゃあ確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>アルバイト</pattern>
+        <template>
+            <set name="wadai">アルバイト</set>について話したかったんだね！,それじゃあ確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>家族</pattern>
+        <template>
+            <set name="wadai">家族</set>について話したかったんだね！,それじゃあ確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>その他</pattern>
+        <template>
+            それじゃあ、何について話したいかもう少し詳しく教えてほしいな！（入力してね！）
+            <think><set name="topic">reset_chat_category_other</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            ごめんよ,「学校」「就職」「友人関係」「アルバイト」「家族」「その他」の中から選んでほしいな
+        </template>
+    </category>
+</topic>
+
+<topic name="reset_chat_timeset">
+    <category>
+        <pattern>5分</pattern>
+        <template>
+            <set name="time_set">5分</set>だね！,それじゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>10分</pattern>
+        <template>
+            <set name="time_set">10分</set>だね！,それじゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>15分</pattern>
+        <template>
+            <set name="time_set">15分</set>だね！,それじゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>20分</pattern>
+        <template>
+            <set name="time_set">20分</set>だね！,それじゃあ最後に確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            ごめんよ,「5分」「10分」「15分」「20分」の中から選んでほしいな
+        </template>
+    </category>
+</topic>
+
+<topic name="reset_chat_category_other">
+    <category>
+        <pattern>*</pattern>
+        <template>
+            なるほど！,<set name="wadai"><star/></set>について話したかったんだね！,それじゃあ確認だけど、話題は「<get name="wadai"/>」、時間は「<get name="time_set"/>」でよかったかな？,「はい」or「話題を設定しなおす」or「時間を設定しなおす」を選んでね
+            <think><set name="topic">final_check</set></think>
+        </template>
+    </category>
+</topic>
+</aiml>
